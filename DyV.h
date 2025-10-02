@@ -38,3 +38,46 @@ int BinarySearch_INV(T x, std::vector<T>& v, int ini, int fin){
 	}
 }
 
+
+template <typename T>
+int partition(std::vector<T>& v, int ini, int fin){
+	T x = v[fin];
+	int i = ini;
+	for(int j = ini;j<fin;i++){
+		if(v[j]<= x){
+			swap(v[i],v[j]);
+			i++;
+		}
+	}
+	swap(v[i],v[fin]);
+	return i;
+}
+
+
+template <typename T>
+void swap(T a, T b){
+	T aux = a;
+	a = b;
+	b = aux;
+}
+
+template <typename T>
+void quicksort(std::vector<T>& v, int ini, int fin){
+	if(ini<fin){
+		int pivot = partition(v,ini,fin);
+		quicksort(v,ini, pivot-1);
+		quicksort(v,pivot+1, fin);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
