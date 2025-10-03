@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
+#include <cstdlib>   // rand, srand
+#include <ctime>     // time
 #include "DyV.h"
+using namespace std::chrono;
 using namespace std;
 
 int main() {
@@ -60,7 +64,6 @@ int main() {
 	
 	}
 		cout << endl;
-    
     }
 
     imprimir(v1);
@@ -78,5 +81,23 @@ int main() {
     quicksort(v1,0,v3.size()-1);
     imprimir(v3);
 
+
+
+
+    srand(time(0)); // inicializar aleatorio
+
+    // Creamos un vector grande de prueba
+    int n = 100000;
+    vector<int> datos(n);
+    for (int i = 0; i < n; i++) datos[i] = rand();
+
+    cout << "Prueba de QuickSort con " << n << " elementos\n";
+
+    medirTiempo(datos, partition_last<int>, "Pivote último");
+    medirTiempo(datos, partition_first<int>, "Pivote primero");
+    medirTiempo(datos, partition_middle<int>, "Pivote central");
+    medirTiempo(datos, partition_random<int>, "Pivote aleatorio");
+
     return 0;
+
 }
