@@ -44,6 +44,39 @@ int main() {
     } catch (const out_of_range& e) {
         cout << e.what() << endl;
     }
+	
+
+    // PRUEBAS QUICKSORT
+
+	    
+    vector<int> v1 = {4, 23, 3, 8, 1, 11};
+    vector<float> v2 = {5.2, 1.1, 10.45, 5.6, 7.1};
+    vector<char> v3 = {'d', 'r', 'b', 'z', 'f'};
+
+    template <typename T>
+    void imprimir(vector<T>& v){
+    	for(int i = 0; i<v.size()-1;i++){
+		cout << v[i] << " ";
+	
+	}
+		cout << endl;
+    
+    }
+
+    imprimir(v1);
+    cout << "Vector int ordenado:" << endl;
+    quicksort(v1,0,v1.size()-1);
+    imprimir(v1);
+
+    imprimir(v2);
+    cout << "Vector float ordenado:" << endl;
+    quicksort(v1,0,v2.size()-1);
+    imprimir(v2);
+
+    imprimir(v3);
+    cout << "Vector char ordenado:" << endl;
+    quicksort(v1,0,v3.size()-1);
+    imprimir(v3);
 
     return 0;
 }
